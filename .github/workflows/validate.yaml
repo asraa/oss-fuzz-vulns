@@ -43,5 +43,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
+      - name: Install dependencies
+        run: |
+          python -m pip install --ugrade pip
+          pip install yaml
       - name: Run validator
         run: python scripts/validate.py -f  ${{needs.changedfiles.outputs.ts}}
